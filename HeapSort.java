@@ -2,16 +2,15 @@ import java.util.Scanner;
 
 public abstract class  HeapSort implements Comparable<Integer>  {
 
-	static int n,comparisions=0;
+	static int n,comparisons=0;
 	public static void main(String[] args)
 	{
 		//int[] myArray= {16,12,1,4,19};
 
 		Scanner input=new Scanner(System.in);
-		System.out.print("n");
 		int length=input.nextInt();
 		int[] myArray= new int[length];
-		
+
 		for(int i=0;i<length;i++)
 			myArray[i]=input.nextInt();
 		input.close();
@@ -29,12 +28,12 @@ public abstract class  HeapSort implements Comparable<Integer>  {
 		}
 		//Type cast to integer and write to variable
 		int runtime = (int) elapsedTime;
-		
+
 		printArray(myArray);
 
 		//Write runtime and key comparisons to standard error
 		System.err.println("runtime," + runtime);
-		System.err.println("comparisons," + comparisions);
+		System.err.println("comparisons," + comparisons);
 
 
 	}
@@ -61,7 +60,7 @@ public abstract class  HeapSort implements Comparable<Integer>  {
 	//overridden function compareTo
 	public static int compareTo(int l,int r)
 	{
-		comparisions++;
+		comparisons++;
 		return l-r;
 	}
 	public static void heapify(int[] myArray,int i)

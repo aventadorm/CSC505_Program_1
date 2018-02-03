@@ -2,14 +2,20 @@ import java.util.Arrays;
 import java.util.Random;
 public class DefaultSort {
     public static void main(String[] args) {
-        //int array[] = {5,4,3,2,1};
-        Random rand = new Random();
+        Scanner input=new Scanner(System.in);
+        int length=input.nextInt();
+        int[] myArray= new int[length];
+
+        for(int i=0;i<length;i++)
+          myArray[i]=input.nextInt();
+        input.close();
+        /*Random rand = new Random();
         int n = 300000;
         int[] array = new int[n];
         for(int i = 0; i < n; i ++){
           array[i] = rand.nextInt();
         }
-
+        */
         //Record system time at start
         long startTime = System.currentTimeMillis();
 
