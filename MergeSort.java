@@ -6,8 +6,9 @@ public abstract class MergeSort implements Comparable<Integer>  {
 	public static void main(String[] args)
 	{
 		Scanner input=new Scanner(System.in);
-		//Parse length of array from first line
-		int length = Integer.parseInt(input.nextLine().replaceAll("n ", ""));
+		String[] abc = input.nextLine().split(" ");
+		int length = Integer.parseInt(abc[1].replaceAll("[^0-9]" ,""));
+		//int length=input.nextInt();
 
 		int[] myArray= new int[length];
 
@@ -41,24 +42,17 @@ public abstract class MergeSort implements Comparable<Integer>  {
 	public static void merge_sort(int[] myArray,int p,int r)
 	{
 
-	/*	if(p<=r)
+		if(p<r)
 		{
 			//int q=(int) ((p+r)/2);
-			int q=((r-p+1)/2);
-			merge_sort(myArray,p,q-1);
-			merge_sort(myArray,q,r);
+			//int q=((r-p+1)/2);
+			int q=p+(r-p)/2;
+			merge_sort(myArray,p,q);
+			merge_sort(myArray,q+1,r);
 
 			merge(myArray,p,q,r);
-		}*/
-		if(r-p<2)
-			return;
-		int q=(r+p)/2;
-		merge_sort(myArray,p,q);
+		}
 		
-		
-		merge_sort(myArray,q+1,r);
-	
-		merge(myArray,p,q,r);
 	}
 	//overridden function compareTo that increments the global counter
 	public static int compareTo(int l,int r)
