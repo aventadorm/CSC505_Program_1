@@ -26,7 +26,7 @@ public abstract class InsertionSort implements Comparable <Integer>{
         int runtime = (int) elapsedTime;
         //Write runtime and key comparisons to standard error
         System.err.println("runtime," + runtime);
-        System.err.println("comparisons," + comparions);
+        System.err.println("comparisons," + comparisons);
         printArray(myArray);
 
     }
