@@ -13,7 +13,7 @@ public abstract class InsertionSort implements Comparable <Integer>{
         //Record system time at start
         long startTime = System.currentTimeMillis();
         //Call to insertionsort
-        insertionsort(array);
+        insertionsort(myArray);
         //Record system time at end
         long endTime = System.currentTimeMillis();
         //Difference is elapsed time and conver to integer.
@@ -27,9 +27,7 @@ public abstract class InsertionSort implements Comparable <Integer>{
         //Write runtime and key comparisons to standard error
         System.err.println("runtime," + runtime);
         System.err.println("comparisons," + comparions);
-        for(int i = 0; i < array.length; i ++){
-          System.out.println(array[i]);
-        }
+        printArray(myArray);
 
     }
     public static void insertionsort(int array[]){

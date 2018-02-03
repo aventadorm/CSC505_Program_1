@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 public class DefaultSort {
     public static void main(String[] args) {
         Scanner input=new Scanner(System.in);
@@ -19,7 +20,7 @@ public class DefaultSort {
         //Record system time at start
         long startTime = System.currentTimeMillis();
 
-        Arrays.sort(array);
+        Arrays.sort(myArray);
 
         //Record system time at end
         long endTime = System.currentTimeMillis();
@@ -33,8 +34,9 @@ public class DefaultSort {
         int runtime = (int) elapsedTime;
         //Write runtime and key comparisons to standard error
         System.err.println("runtime," + runtime);
-
         printArray(array);
+
+
 
 
     }
