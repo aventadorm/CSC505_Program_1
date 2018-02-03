@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.Random;
 public class DefaultSort {
     public static void main(String[] args) {
-        
+
         /*Random rand = new Random();
         int n = 300000;
         int[] array = new int[n];
@@ -20,7 +20,7 @@ public class DefaultSort {
         //Record system time at start
         long startTime = System.currentTimeMillis();
 
-        Arrays.sort(array);
+        Arrays.sort(myArray);
 
         //Record system time at end
         long endTime = System.currentTimeMillis();
