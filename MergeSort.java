@@ -5,16 +5,17 @@ public abstract class MergeSort implements Comparable<Integer>  {
 
 	public static void main(String[] args)
 	{
-		//int[] myArray= {1,2,3,4,5,6,7,8};
 		Scanner input=new Scanner(System.in);
-		System.out.print("n");
+			System.out.print("n");
+
 		int length=input.nextInt();
+
 		int[] myArray= new int[length];
-		
+
 		for(int i=0;i<length;i++)
 			myArray[i]=input.nextInt();
 		input.close();
-		
+
 		//Record system time at start
 		long startTime = System.currentTimeMillis();
 		//Call to merge sort

@@ -1,12 +1,21 @@
+import java.util.Scanner;
 
 public abstract class InsertionSort implements Comparable <Integer>{
   static int kc = 0;
     public static void main(String[] args) {
-        int array[] = {5,4,3,2,1};
+        Scanner input=new Scanner(System.in);
+            System.out.print("n");
+
+        int length=input.nextInt();
+        int[] myArray= new int[length];
+
+        for(int i=0;i<length;i++)
+          myArray[i]=input.nextInt();
+        input.close();
         //Record system time at start
         long startTime = System.currentTimeMillis();
         //Call to insertionsort
-        insertionsort(array);
+        insertionsort(myArray);
         //Record system time at end
         long endTime = System.currentTimeMillis();
         //Difference is elapsed time and conver to integer.
