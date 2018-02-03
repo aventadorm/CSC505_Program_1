@@ -3,8 +3,13 @@ public abstract class  HeapSort implements Comparable<Integer>  {
 	static int n,comparisions=0;
 	public static void main(String[] args)
 	{
-		int[] myArray= {16,12,1,4,19};
+		Scanner input=new Scanner(System.in);
+		int length=input.nextInt();
+		int[] myArray= new int[length];
 
+		for(int i=0;i<length;i++)
+			myArray[i]=input.nextInt();
+		input.close();
 		//Record system time at start
 		long startTime = System.currentTimeMillis();
 		//Call to Heap Sort
