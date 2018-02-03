@@ -6,8 +6,11 @@ public abstract class MergeSort implements Comparable<Integer>  {
 	public static void main(String[] args)
 	{
 		Scanner input=new Scanner(System.in);
+<<<<<<< HEAD
 			System.out.print("n");
 
+=======
+>>>>>>> 60b0e3c1e7bf740b94c4196b4d5b97ce9be1fea2
 		int length=input.nextInt();
 
 		int[] myArray= new int[length];
