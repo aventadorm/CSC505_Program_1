@@ -42,15 +42,24 @@ public abstract class MergeSort implements Comparable<Integer>  {
 	public static void merge_sort(int[] myArray,int p,int r)
 	{
 
-		if(p<r)
+	/*	if(p<=r)
 		{
-			int q=(int) ((p+r)/2);
-			//int q=((r-p+1)/2);
-			merge_sort(myArray,p,q);
-			merge_sort(myArray,q+1,r);
+			//int q=(int) ((p+r)/2);
+			int q=((r-p+1)/2);
+			merge_sort(myArray,p,q-1);
+			merge_sort(myArray,q,r);
 
 			merge(myArray,p,q,r);
-		}
+		}*/
+		if(r-p<2)
+			return;
+		int q=(r+p)/2;
+		merge_sort(myArray,p,q);
+		
+		
+		merge_sort(myArray,q+1,r);
+	
+		merge(myArray,p,q,r);
 	}
 	//overridden function compareTo that increments the global counter
 	public static int compareTo(int l,int r)
