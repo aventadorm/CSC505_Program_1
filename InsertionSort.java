@@ -20,7 +20,6 @@ public abstract class InsertionSort implements Comparable <Integer>{
         //Write runtime and key comparisons to standard error
         System.err.println("runtime," + runtime);
         System.err.println("comparisons," + kc);
-        //System.out.print("Key Comparisons :" + kc +"\n");
         for(int i = 0; i < array.length; i ++){
           System.out.println(array[i]);
         }
@@ -45,5 +44,9 @@ public abstract class InsertionSort implements Comparable <Integer>{
       kc++;
       return a - k;
     }
-
+    public static void printArray(int[] array)
+  	{
+  		for(int i=0;i<array.length;i++)
+  			System.out.println(array[i]);
+  	}
 }

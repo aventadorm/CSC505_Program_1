@@ -29,10 +29,13 @@ public class DefaultSort {
         System.err.println("runtime," + runtime);
         System.err.println("comparisons," + kc);
 
-        for(int i = 0; i < array.length; i ++){
-          System.out.println(array[i]);
-        }
+        printArray(array);
 
 
     }
+    public static void printArray(int[] array)
+  	{
+  		for(int i=0;i<array.length;i++)
+  			System.out.println(array[i]);
+  	}
 }

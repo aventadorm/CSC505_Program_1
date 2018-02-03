@@ -25,7 +25,6 @@ public abstract class  HeapSort implements Comparable<Integer>  {
 
 		printArray(myArray);
 
-		System.out.println("\nComparisions are "+comparisions);
 	}
 	public static void heap_sort(int[] myArray)
 	{
@@ -87,7 +86,6 @@ public abstract class  HeapSort implements Comparable<Integer>  {
 	}
 	public static void printArray(int[] array)
 	{
-		System.out.println("\nArray is");
 		for(int i=0;i<array.length;i++)
 			System.out.println(array[i]);
 	}

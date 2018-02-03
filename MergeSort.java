@@ -4,7 +4,27 @@ public abstract class MergeSort implements Comparable<Integer>  {
 	public static void main(String[] args)
 	{
 		int[] myArray= {1,2,3,4,5,6,7,8};
+
+		//Record system time at start
+		long startTime = System.currentTimeMillis();
+		//Call to merge sort
 		merge_sort(myArray,0,myArray.length-1);
+		//Record system time at end
+		long endTime = System.currentTimeMillis();
+		//Difference is elapsed time and conver to integer.
+		long elapsedTime = endTime - startTime;
+		//Check to see if long goes over max integer value
+		if(elapsedTime > Integer.MAX_VALUE){
+			throw new IllegalArgumentException(elapsedTime + "cannot convert to int without modifying value");
+		}
+		//Typecast to integer and write to variable
+		int runtime = (int) elapsedTime;
+		//Write runtime and key comparisons to standard error
+		System.err.println("runtime," + runtime);
+		System.err.println("comparisons," + kc);
+
+
+		printArray(myArray);
 	}
 	public static void merge_sort(int[] myArray,int p,int r)
 	{
@@ -64,13 +84,9 @@ public abstract class MergeSort implements Comparable<Integer>  {
 			j++;
 			k++;
 		}
-
-		printArray(myArray);
-		System.out.println("\nComparisions are "+comparisons);
 	}
 	public static void printArray(int[] array)
 	{
-		System.out.println("\nArray is");
 		for(int i=0;i<array.length;i++)
 			System.out.println(array[i]);
 	}
