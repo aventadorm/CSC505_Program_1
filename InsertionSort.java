@@ -29,9 +29,7 @@ public abstract class InsertionSort implements Comparable <Integer>{
         //Write runtime and key comparisons to standard error
         System.err.println("runtime," + runtime);
         System.err.println("comparisons," + kc);
-        for(int i = 0; i < array.length; i ++){
-          System.out.println(array[i]);
-        }
+        printArray(myArray);
 
     }
     public static void insertionsort(int array[]){
