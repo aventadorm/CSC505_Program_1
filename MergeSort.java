@@ -33,11 +33,7 @@ public abstract class MergeSort implements Comparable<Integer>  {
 
 		//Write runtime and key comparisons to standard error
 		System.err.println("runtime," + runtime);
-<<<<<<< HEAD
 		System.err.println("comparisons," + comparisons);
-=======
-		//System.err.println("comparisons," + kc);
->>>>>>> b0ee77eea35336bdbde09a0a0ec17f56cee4e2bb
 
 
 	}
