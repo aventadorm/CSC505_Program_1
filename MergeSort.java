@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public abstract class MergeSort implements Comparable<Integer>  {
 	static int comparisons=0;
 
@@ -19,7 +21,7 @@ public abstract class MergeSort implements Comparable<Integer>  {
 		merge_sort(myArray,0,length-1);
 		//Record system time at end
 		long endTime = System.currentTimeMillis();
-		//Difference is elapsed time and conver to integer.
+		//Difference is elapsed time and convert to integer.
 		long elapsedTime = endTime - startTime;
 		//Check to see if long goes over max integer value
 		if(elapsedTime > Integer.MAX_VALUE){
@@ -27,30 +29,35 @@ public abstract class MergeSort implements Comparable<Integer>  {
 		}
 		//Typecast to integer and write to variable
 		int runtime = (int) elapsedTime;
+		printArray(myArray);
+
 		//Write runtime and key comparisons to standard error
 		System.err.println("runtime," + runtime);
-		System.err.println("comparisons," + kc);
+		System.err.println("comparisons," + comparisons);
 
 
-		printArray(myArray);
 	}
+	//recursively split the array and then merge
 	public static void merge_sort(int[] myArray,int p,int r)
 	{
 
 		if(p<r)
 		{
 			int q=(int) ((p+r)/2);
+			//int q=((r-p+1)/2);
 			merge_sort(myArray,p,q);
 			merge_sort(myArray,q+1,r);
 
 			merge(myArray,p,q,r);
 		}
 	}
+	//overridden function compareTo that increments the global counter
 	public static int compareTo(int l,int r)
 	{
 		comparisons++;
 		return l-r;
 	}
+	//function to sort the array
 	public static void merge(int[] myArray, int p, int q, int r )
 	{
 		int n1=q-p+1;
@@ -65,12 +72,13 @@ public abstract class MergeSort implements Comparable<Integer>  {
 		int i=0,j=0,k=p;
 		while(i<n1 && j<n2)
 		{
-			//if(L[i]<=R[j])
+			//if left element is smaller, take that and increment counter of left array
 			if(compareTo(L[i],R[j])<=0)
 			{
 				myArray[k]=L[i];
 				i++;
 			}
+			//else if right element is smaller, take that and increment counter of right array
 			else
 			{
 				myArray[k]=R[j];
@@ -79,13 +87,14 @@ public abstract class MergeSort implements Comparable<Integer>  {
 			k++;
 
 		}
-
+		//copy remaining elements of left array
 		while(i<n1)
 		{
 			myArray[k]=L[i];
 			i++;
 			k++;
 		}
+		//copy remaining elements of right arrays
 		while(j<n2)
 		{
 			myArray[k]=R[j];
@@ -93,6 +102,7 @@ public abstract class MergeSort implements Comparable<Integer>  {
 			k++;
 		}
 	}
+	//method to print any array
 	public static void printArray(int[] array)
 	{
 		for(int i=0;i<array.length;i++)
