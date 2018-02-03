@@ -8,8 +8,9 @@ public abstract class  HeapSort implements Comparable<Integer>  {
 		//int[] myArray= {16,12,1,4,19};
 
 		Scanner input=new Scanner(System.in);
+		//Parse length of array from first line
+		int length = Integer.parseInt(input.nextLine().replaceAll("n ", ""));
 
-		int length=input.nextInt();
 		int[] myArray= new int[length];
 
 		for(int i=0;i<length;i++)

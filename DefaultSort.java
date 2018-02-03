@@ -14,7 +14,9 @@ public class DefaultSort {
         }*/
 
         Scanner input=new Scanner(System.in);
-    		int length=input.nextInt();
+    		//Parse length of array from first line
+    		int length = Integer.parseInt(input.nextLine().replaceAll("n ", ""));
+
     		int[] myArray= new int[length];
 
     		for(int i=0;i<length;i++)
