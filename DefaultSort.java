@@ -1,41 +1,27 @@
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
-<<<<<<< HEAD
+
 
 public class DefaultSort {
     public static void main(String[] args) {
 
-=======
-public class DefaultSort {
-    public static void main(String[] args) {
-        Scanner input=new Scanner(System.in);
-        int length=input.nextInt();
-        int[] myArray= new int[length];
-
-        for(int i=0;i<length;i++)
-          myArray[i]=input.nextInt();
-        input.close();
->>>>>>> 60b0e3c1e7bf740b94c4196b4d5b97ce9be1fea2
         /*Random rand = new Random();
         int n = 300000;
         int[] array = new int[n];
         for(int i = 0; i < n; i ++){
           array[i] = rand.nextInt();
-<<<<<<< HEAD
         }*/
 
         Scanner input=new Scanner(System.in);
+        System.out.print("n");
     		int length=input.nextInt();
     		int[] myArray= new int[length];
 
     		for(int i=0;i<length;i++)
     			myArray[i]=input.nextInt();
     		input.close();
-=======
-        }
-        */
->>>>>>> 60b0e3c1e7bf740b94c4196b4d5b97ce9be1fea2
+
         //Record system time at start
         long startTime = System.currentTimeMillis();
 
@@ -53,15 +39,9 @@ public class DefaultSort {
         int runtime = (int) elapsedTime;
         //Write runtime and key comparisons to standard error
         System.err.println("runtime," + runtime);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        //System.err.println("comparisons," + kc);
->>>>>>> 95aac650e6215288cb2d35b50cc3da453c7d97a3
-=======
+
         printArray(myArray);
 
->>>>>>> 60b0e3c1e7bf740b94c4196b4d5b97ce9be1fea2
 
 
 
