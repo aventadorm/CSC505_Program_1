@@ -36,7 +36,7 @@ public class DefaultSort {
         int runtime = (int) elapsedTime;
         //Write runtime and key comparisons to standard error
         System.err.println("runtime," + runtime);
-        System.err.println("comparisons," + kc);
+        //System.err.println("comparisons," + kc);
 
         printArray(array);
 
