@@ -9,20 +9,30 @@ public class DefaultSort {
         for(int i = 0; i < n; i ++){
           array[i] = rand.nextInt();
         }
+
+        //Record system time at start
         long startTime = System.currentTimeMillis();
+
         Arrays.sort(array);
+
+        //Record system time at end
         long endTime = System.currentTimeMillis();
+        //Difference is elapsed time and conver to integer.
         long elapsedTime = endTime - startTime;
-        int MILLISECONDS = (int) elapsedTime;
-        for(int i = 0; i < array.length; i ++){
-          System.out.print(array[i]+ "\n");
+        //Check to see if long goes over max integer value
+        if(elapsedTime > Integer.MAX_VALUE){
+          throw new IllegalArgumentException(elapsedTime + "cannot convert to int without modifying value");
         }
-        System.out.print("Time :");
+        //Typecast to integer and write to variable
+        int runtime = (int) elapsedTime;
+        //Write runtime and key comparisons to standard error
+        System.err.println("runtime," + runtime);
+        System.err.println("comparisons," + kc);
 
-        System.out.print(MILLISECONDS);
-        System.out.print("\n");
+        for(int i = 0; i < array.length; i ++){
+          System.out.println(array[i]);
+        }
 
-s
 
     }
 }
