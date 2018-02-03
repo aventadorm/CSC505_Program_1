@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public abstract class  HeapSort implements Comparable<Integer>  {
 
 	static int n,comparisions=0;

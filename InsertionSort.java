@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public abstract class InsertionSort implements Comparable <Integer>{
   static int kc = 0;
