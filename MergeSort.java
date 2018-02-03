@@ -9,6 +9,7 @@ public abstract class MergeSort implements Comparable<Integer>  {
 
 		//String[] abc = input.nextLine().split(" ");
 		//int length = Integer.parseInt(abc[1].replaceAll("[^0-9]" ,""));
+		int length = 0;
 		String s = input.nextLine();
 		System.out.println(s);
 		//int length=Integer.parseInt(input.nextLine());
