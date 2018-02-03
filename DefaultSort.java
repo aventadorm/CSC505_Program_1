@@ -14,7 +14,6 @@ public class DefaultSort {
         }*/
 
         Scanner input=new Scanner(System.in);
-        System.out.print("n");
     		int length=input.nextInt();
     		int[] myArray= new int[length];
 

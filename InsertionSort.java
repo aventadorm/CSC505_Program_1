@@ -3,7 +3,6 @@ import java.util.Scanner;
 public abstract class InsertionSort implements Comparable <Integer>{
   static int kc = 0;
     public static void main(String[] args) {
-        System.out.print("m");
         Scanner input=new Scanner(System.in);
         int length=input.nextInt();
         int[] myArray= new int[length];
