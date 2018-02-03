@@ -1,19 +1,28 @@
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
+
 public class DefaultSort {
     public static void main(String[] args) {
-        //int array[] = {5,4,3,2,1};
-        Random rand = new Random();
+
+        /*Random rand = new Random();
         int n = 300000;
         int[] array = new int[n];
         for(int i = 0; i < n; i ++){
           array[i] = rand.nextInt();
-        }
+        }*/
 
+        Scanner input=new Scanner(System.in);
+    		int length=input.nextInt();
+    		int[] myArray= new int[length];
+
+    		for(int i=0;i<length;i++)
+    			myArray[i]=input.nextInt();
+    		input.close();
         //Record system time at start
         long startTime = System.currentTimeMillis();
 
-        Arrays.sort(array);
+        Arrays.sort(myArray);
 
         //Record system time at end
         long endTime = System.currentTimeMillis();
@@ -27,6 +36,10 @@ public class DefaultSort {
         int runtime = (int) elapsedTime;
         //Write runtime and key comparisons to standard error
         System.err.println("runtime," + runtime);
+<<<<<<< HEAD
+=======
+        //System.err.println("comparisons," + kc);
+>>>>>>> 95aac650e6215288cb2d35b50cc3da453c7d97a3
 
         printArray(array);
 
