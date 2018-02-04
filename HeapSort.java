@@ -1,8 +1,9 @@
 import java.util.Scanner;
 
-public abstract class  HeapSort implements Comparable<Integer>  {
+public abstract class  HeapSort {
 
 	static int n,comparisons=0;
+	static Integer x, y;
 	public static void main(String[] args)
 	{
 		//int[] myArray= {16,12,1,4,19};
@@ -60,10 +61,12 @@ public abstract class  HeapSort implements Comparable<Integer>  {
 
 	}
 	//overridden function compareTo
-	public static int compareTo(int l,int r)
+	public static int compare(int l,int r)
 	{
 		comparisons++;
-		return l-r;
+		x = Integer.valueOf(l);
+    y = Integer.valueOf(r);
+		return x.compareTo(y);
 	}
 	public static void heapify(int[] myArray,int i)
 	{
@@ -71,7 +74,7 @@ public abstract class  HeapSort implements Comparable<Integer>  {
 		int l=left(i);
 		int r=right(i);
 		//compare left child to root and update largest
-		if(l<n && compareTo(myArray[l],myArray[i])>=0)
+		if(l<n && compare(myArray[l],myArray[i])>=0)
 		{
 			largest=l;
 		}
@@ -80,7 +83,7 @@ public abstract class  HeapSort implements Comparable<Integer>  {
 
 		}
 		//compare right child to largest so far
-		if(r<n && compareTo(myArray[r],myArray[largest])>=0)
+		if(r<n && compare(myArray[r],myArray[largest])>=0)
 		{
 			largest=r;
 		}
