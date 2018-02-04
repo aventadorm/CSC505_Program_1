@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public abstract class InsertionSort implements Comparable <Integer>{
+public abstract class InsertionSort{
   static int comparisons = 0;
   static Integer x, y;
   //overridden function compareTo
