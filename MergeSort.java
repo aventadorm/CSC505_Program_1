@@ -4,6 +4,14 @@ public abstract class MergeSort {
 	static int comparisons=0;
 	static Integer x, y;
 
+	//overridden function compareTo
+	public static int compare(int l,int r)
+	{
+		comparisons++;
+		x = Integer.valueOf(l);
+		y = Integer.valueOf(r);
+		return x.compareTo(y);
+	}
 	public static void main(String[] args)
 	{
 		Scanner input=new Scanner(System.in);
@@ -53,7 +61,7 @@ public abstract class MergeSort {
 
 			merge(myArray,p,q,r);
 		}
-	
+
 /*		if(r-p<2)
 			return;
 		int q=(r+p)/2;
@@ -63,7 +71,7 @@ public abstract class MergeSort {
 
 <<<<<<< HEAD
 		merge(myArray,p,q,r);*/
-		
+
 =======
 		merge(myArray,p,q,r);
 
