@@ -51,16 +51,6 @@ public abstract class MergeSort {
 	public static void merge_sort(int[] myArray)
 	{
 
-	/*	if(p<r)
-		{
-			int q=(int) (((p+r)/2));
-			//int q=((r-p+1)/2);
-			//int q=p+(r-p)/2;
-			merge_sort(myArray,p,q);
-			merge_sort(myArray,q+1,r);
-
-			merge(myArray,p,q,r);
-		}*/
 
 		 if (myArray.length > 1)
 		 {
