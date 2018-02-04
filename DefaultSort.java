@@ -1,9 +1,10 @@
 import java.util.Arrays;
-import java.util.Random;
+import java.util.Comparator;
 import java.util.Scanner;
 
 
 public class DefaultSort {
+    static int comparisons=0;
     public static void main(String[] args) {
 
         /*Random rand = new Random();
@@ -14,19 +15,31 @@ public class DefaultSort {
         }*/
 
         Scanner input=new Scanner(System.in);
-    		//Parse length of array from first line
-    		int length = Integer.parseInt(input.nextLine().replaceAll("n ", ""));
+            //Parse length of array from first line
+            int length = Integer.parseInt(input.nextLine().replaceAll("n ", ""));
 
-    		int[] myArray= new int[length];
+            int[] myArray= new int[length];
 
-    		for(int i=0;i<length;i++)
-    			myArray[i]=input.nextInt();
-    		input.close();
+            for(int i=0;i<length;i++)
+                myArray[i]=input.nextInt();
+            input.close();
 
         //Record system time at start
         long startTime = System.currentTimeMillis();
+      //  Integer[] test = Arrays.stream( myArray ).boxed().toArray( Integer[]::new );
 
-        Arrays.sort(myArray);
+        Integer[] test = new Integer[myArray.length];
+        int i = 0;
+        for (int value : myArray) {
+            test[i++] = Integer.valueOf(value);
+        }
+        Arrays.sort(test, new Comparator<Integer>(){
+            @Override
+            public int compare(Integer arg0, Integer arg1) {
+                comparisons++;
+
+               return -1 * arg0.compareTo(arg1);
+            }});
 
         //Record system time at end
         long endTime = System.currentTimeMillis();
@@ -40,6 +53,7 @@ public class DefaultSort {
         int runtime = (int) elapsedTime;
         //Write runtime and key comparisons to standard error
         System.err.println("runtime," + runtime);
+        System.err.println("comparisons," + comparisons);
 
         printArray(myArray);
 
@@ -48,8 +62,10 @@ public class DefaultSort {
 
     }
     public static void printArray(int[] array)
-  	{
-  		for(int i=0;i<array.length;i++)
-  			System.out.println(array[i]);
-  	}
+    {
+        for(int i=0;i<array.length;i++)
+            System.out.println(array[i]);
+    }
 }
+
+ 
