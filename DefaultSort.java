@@ -45,7 +45,7 @@ public class DefaultSort {
         //Write runtime and key comparisons to standard error
         System.err.println("runtime," + runtime);
         System.err.println("comparisons," + comparisons);
-        
+
         i = 0;
         for(Integer intobject : test){
           myArray[i++] = intobject.intValue();
