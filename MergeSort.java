@@ -1,10 +1,10 @@
 import java.util.Scanner;
 
 public abstract class MergeSort {
-	static int comparisons=0;
+	static int comparisons=0; //global variable to store number of comparisons
 	static Integer x, y;
 
-	//overridden function compareTo that increments the global counter
+	//overridden function compare that increments the global counter
 	public static int compare(int l,int r)
 	{
 		comparisons++;
@@ -54,7 +54,7 @@ public abstract class MergeSort {
 		 if (myArray.length > 1)
 		 {
 	            // split array into two halves
-	            int[] L = leftHalf(myArray);
+	            int[] L = leftHalf(myArray); 	
 	            int[] R = rightHalf(myArray);
 
 	            // recursively sort the two halves
@@ -67,6 +67,7 @@ public abstract class MergeSort {
 
 
 	}
+	//function to split array in its left half that is from a[0,mid]
 	public static int[] leftHalf(int[] myArray) {
         int size1 = myArray.length / 2;
         int[] left = new int[size1];
@@ -76,7 +77,7 @@ public abstract class MergeSort {
         return left;
     }
 
-    // Returns the second half of the given array
+    // Returns the second half of the given array that is from a[mid,end]
     public static int[] rightHalf(int[] myArray) {
         int size1 = myArray.length / 2;
         int size2 = myArray.length - size1;
@@ -95,7 +96,7 @@ public abstract class MergeSort {
 
         for (int k = 0; k < myArray.length; k++)
         {
-            if (j >= R.length || (i < L.length && compare(L[i],R[j])<=0))
+            if (j >= R.length || (i < L.length && compare(L[i],R[j])<=0))	//compare the elements of right and left sub arrays
             {
             	myArray[k] = L[i];    // take from left
                 i++;

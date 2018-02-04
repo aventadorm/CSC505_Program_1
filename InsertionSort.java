@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
 public abstract class InsertionSort{
-  static int comparisons = 0;
-  static Integer x, y;
-  //overridden function compareTo
+    static int comparisons = 0;
+    static Integer x, y;
+    //overridden function compare
     public static int compare(int l,int r)
     {
       comparisons++;
@@ -35,6 +35,7 @@ public abstract class InsertionSort{
         }
         //Typecast to integer and write to variable
         int runtime = (int) elapsedTime;
+        
         //Write runtime and key comparisons to standard error
         System.err.println("runtime," + runtime);
         System.err.println("comparisons," + comparisons);
@@ -47,7 +48,7 @@ public abstract class InsertionSort{
         int j = i - 1;
 
         while(j >= 0 && compare(array[j], key) > 0){
-          array[j+1] = array[j];
+          array[j+1] = array[j];  //move elements greater than key to one position ahead of current position
           j--;
         }
         array[j+1] = key;
@@ -56,7 +57,7 @@ public abstract class InsertionSort{
       }
 
 
-
+    //function to print any array
     public static void printArray(int[] array)
   	{
   		for(int i=0;i<array.length;i++)

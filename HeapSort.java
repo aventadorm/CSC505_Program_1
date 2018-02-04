@@ -2,9 +2,9 @@ import java.util.Scanner;
 
 public abstract class HeapSort{
 
-	static int n,comparisons=0;
+	static int n,comparisons=0; //global variable to store comparisons
 	static Integer x,y;
-	//overridden function compareTo
+	//overridden function compare
 	public static int compare(int l,int r)
 	{
 		comparisons++;
@@ -55,13 +55,16 @@ public abstract class HeapSort{
 		{
 			heapify(myArray,i);
 		}
-		//swap the current root to end and heapify rest of the heap
+		
 		for(int j=n-1;j>=0;j--)
 		{
+			//swap the current root to end
 			int temp=myArray[0];
 			myArray[0]=myArray[j];
 			myArray[j]=temp;
 			n=n-1;
+
+			//heapify rest of the heap
 			heapify(myArray,0);
 
 		}
@@ -71,8 +74,9 @@ public abstract class HeapSort{
 	public static void heapify(int[] myArray,int i)
 	{
 		int largest=i;
-		int l=left(i);
-		int r=right(i);
+		int l=left(i);	//function to get left child of node i
+		int r=right(i);	//function to get right child of node i
+		
 		//compare left child to root and update largest
 		if(l<n && compare(myArray[l],myArray[i])>=0)
 		{
@@ -82,11 +86,13 @@ public abstract class HeapSort{
 		{	largest=i;
 
 		}
+		
 		//compare right child to largest so far
 		if(r<n && compare(myArray[r],myArray[largest])>=0)
 		{
 			largest=r;
 		}
+		
 		//if largest is not the root, swap them and re-heapify
 		if(largest!=i)
 		{

@@ -4,26 +4,31 @@ import java.util.Scanner;
 
 
 public abstract class DefaultSort implements Comparable<Integer>{
-    static int comparisons=0;
+    static int comparisons=0; //global variable to store number of comparisons
     public static void main(String[] args) {
         Scanner input=new Scanner(System.in);
-            //Parse length of array from first line
-            int length = Integer.parseInt(input.nextLine().replaceAll("n ", ""));
 
-            int[] myArray= new int[length];
+        //Parse length of array from first line
+        int length = Integer.parseInt(input.nextLine().replaceAll("n ", ""));
 
-            for(int i=0;i<length;i++)
-                myArray[i]=input.nextInt();
-            input.close();
+        int[] myArray= new int[length];
+
+        //read the array
+        for(int i=0;i<length;i++)
+            myArray[i]=input.nextInt();
+        input.close();
 
         //Record system time at start
         long startTime = System.currentTimeMillis();
 
+        //converting int array to Integer array
         Integer[] test = new Integer[myArray.length];
         int i = 0;
         for (int value : myArray) {
             test[i++] = Integer.valueOf(value);
         }
+
+        //overidden function 
         Arrays.sort(test, new Comparator<Integer>(){
           //@Override
           public int compare(Integer a, Integer b){
@@ -56,6 +61,7 @@ public abstract class DefaultSort implements Comparable<Integer>{
 
 
     }
+    //function to print the array
     public static void printArray(int[] array)
     {
         for(int i=0;i<array.length;i++)
