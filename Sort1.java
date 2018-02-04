@@ -8,7 +8,7 @@ class ArrayComparator implements Comparator<Integer>{
     return a.intValue() - b.intValue();
   }
 }
-public class DefaultSort {
+public class Sort1 {
     static int comparisons=0;
     public static void main(String[] args) {
 
@@ -38,7 +38,7 @@ public class DefaultSort {
             test[i++] = Integer.valueOf(value);
         }
         Arrays.sort(test, new ArrayComparator());
-
+        
         //Record system time at end
         long endTime = System.currentTimeMillis();
         //Difference is elapsed time and conver to integer.
