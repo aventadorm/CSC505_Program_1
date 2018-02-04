@@ -12,8 +12,9 @@ public abstract class HeapSort implements Comparable<Integer>{
 
 		int[] myArray= new int[length];
 
-		for(int i=0;i<length;i++)
+		for(int i=0;i<length;i++){
 			myArray[i]=input.nextInt();
+		}
 		input.close();
 		//Record system time at start
 		long startTime = System.currentTimeMillis();
@@ -59,12 +60,12 @@ public abstract class HeapSort implements Comparable<Integer>{
 
 	}
 	//overridden function compareTo
-	public static int compare(int l,int r)
+	public static int compareTo(int l,int r)
 	{
 		comparisons++;
 		x = Integer.valueOf(l);
 		y = Integer.valueOf(r);
-		return x.compareTo(y);
+		return l-r;
 	}
 	public static void heapify(int[] myArray,int i)
 	{
@@ -72,7 +73,7 @@ public abstract class HeapSort implements Comparable<Integer>{
 		int l=left(i);
 		int r=right(i);
 		//compare left child to root and update largest
-		if(l<n && compare(myArray[l],myArray[i])>=0)
+		if(l<n && compareTo(myArray[l],myArray[i])>=0)
 		{
 			largest=l;
 		}
@@ -81,7 +82,7 @@ public abstract class HeapSort implements Comparable<Integer>{
 
 		}
 		//compare right child to largest so far
-		if(r<n && compare(myArray[r],myArray[largest])>=0)
+		if(r<n && compareTo(myArray[r],myArray[largest])>=0)
 		{
 			largest=r;
 		}
