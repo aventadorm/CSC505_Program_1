@@ -37,7 +37,7 @@ public class DefaultSort {
             @Override
             public int compare(Integer arg0, Integer arg1) {
                 comparisons++;
-                return arg0.compareTo(arg1);
+                return -1 * arg0.compareTo(arg1);
             }});
 
         //Record system time at end
