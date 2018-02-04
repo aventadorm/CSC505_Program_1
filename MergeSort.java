@@ -1,7 +1,8 @@
 import java.util.Scanner;
 
-public abstract class MergeSort implements Comparable<Integer>  {
+public abstract class MergeSort {
 	static int comparisons=0;
+	static Integer x, y;
 
 	public static void main(String[] args)
 	{
@@ -56,18 +57,20 @@ public abstract class MergeSort implements Comparable<Integer>  {
 		if(r-p<2)
 			return;
 		int q=(r+p)/2;
-		
+
 		merge_sort(myArray,p,q);
-		merge_sort(myArray,q,r);
+		merge_sort(myArray,q+1,r);
 
 		merge(myArray,p,q,r);
-		
+
 	}
 	//overridden function compareTo that increments the global counter
-	public static int compareTo(int l,int r)
+	public static int compare(int l,int r)
 	{
 		comparisons++;
-		return l-r;
+		x = Integer.valueOf(l);
+		y = Integer.valueOf(r);
+		return l.compareTo(r);
 	}
 	//function to sort the array
 	public static void merge(int[] myArray, int p, int q, int r )
@@ -85,7 +88,7 @@ public abstract class MergeSort implements Comparable<Integer>  {
 		while(i<n1 && j<n2)
 		{
 			//if left element is smaller, take that and increment counter of left array
-			if(compareTo(L[i],R[j])<=0)
+			if(compare(L[i],R[j])<=0)
 			{
 				myArray[k]=L[i];
 				i++;
