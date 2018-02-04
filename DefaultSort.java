@@ -21,14 +21,14 @@ public abstract class DefaultSort implements Comparable<Integer>{
         //Record system time at start
         long startTime = System.currentTimeMillis();
 
-        //converting int array to Integer array
+        //converting int array to Integer array since the Comparator accepts only Integer objects
         Integer[] test = new Integer[myArray.length];
         int i = 0;
         for (int value : myArray) {
             test[i++] = Integer.valueOf(value);
         }
 
-        //overidden function 
+        //overidden function that uses the compare To function and increments the counter
         Arrays.sort(test, new Comparator<Integer>(){
           //@Override
           public int compare(Integer a, Integer b){
@@ -51,6 +51,7 @@ public abstract class DefaultSort implements Comparable<Integer>{
         System.err.println("runtime," + runtime);
         System.err.println("comparisons," + comparisons);
 
+        //converting Integer objects to int array which is now sorted.
         i = 0;
         for(Integer intobject : test){
           myArray[i++] = intobject.intValue();
