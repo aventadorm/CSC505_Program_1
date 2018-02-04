@@ -1,7 +1,16 @@
 import java.util.Scanner;
 
-public abstract class InsertionSort implements Comparable <Integer>{
-  static int kc = 0;
+public abstract class InsertionSort{
+  static int comparisons = 0;
+  static Integer x, y;
+  //overridden function compareTo
+    public static int compare(int l,int r)
+    {
+      comparisons++;
+      x = Integer.valueOf(l);
+      y = Integer.valueOf(r);
+      return x.compareTo(y);
+    }
     public static void main(String[] args) {
         Scanner input=new Scanner(System.in);
         //Parse length of array from first line
@@ -28,7 +37,7 @@ public abstract class InsertionSort implements Comparable <Integer>{
         int runtime = (int) elapsedTime;
         //Write runtime and key comparisons to standard error
         System.err.println("runtime," + runtime);
-        System.err.println("comparisons," + kc);
+        System.err.println("comparisons," + comparisons);
         printArray(myArray);
 
     }
@@ -37,7 +46,7 @@ public abstract class InsertionSort implements Comparable <Integer>{
         int key = array[i];
         int j = i - 1;
 
-        while(j >= 0 && compareTo(array[j], key) > 0){
+        while(j >= 0 && compare(array[j], key) > 0){
           array[j+1] = array[j];
           j--;
         }
@@ -47,10 +56,7 @@ public abstract class InsertionSort implements Comparable <Integer>{
       }
 
 
-    public static int compareTo(int a, int k){
-      kc++;
-      return a - k;
-    }
+
     public static void printArray(int[] array)
   	{
   		for(int i=0;i<array.length;i++)

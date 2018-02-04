@@ -4,6 +4,14 @@ public abstract class MergeSort {
 	static int comparisons=0;
 	static Integer x, y;
 
+	//overridden function compareTo that increments the global counter
+	public static int compare(int l,int r)
+	{
+		comparisons++;
+		x = Integer.valueOf(l);
+		y = Integer.valueOf(r);
+		return x.compareTo(y);
+	}
 	public static void main(String[] args)
 	{
 		Scanner input=new Scanner(System.in);
@@ -20,7 +28,7 @@ public abstract class MergeSort {
 		//Record system time at start
 		long startTime = System.currentTimeMillis();
 		//Call to merge sort
-		merge_sort(myArray,0,length-1);
+		merge_sort(myArray);
 		//Record system time at end
 		long endTime = System.currentTimeMillis();
 		//Difference is elapsed time and convert to integer.
@@ -40,88 +48,66 @@ public abstract class MergeSort {
 
 	}
 	//recursively split the array and then merge
-	public static void merge_sort(int[] myArray,int p,int r)
+	public static void merge_sort(int[] myArray)
 	{
 
-		if(p<r)
-		{
-			int q=(int) (((p+r)/2)-1);
-			//int q=((r-p+1)/2);
-			//int q=p+(r-p)/2;
-			merge_sort(myArray,p,q);
-			merge_sort(myArray,q+1,r);
+		 if (myArray.length > 1)
+		 {
+	            // split array into two halves
+	            int[] L = leftHalf(myArray);
+	            int[] R = rightHalf(myArray);
 
-			merge(myArray,p,q,r);
-		}
-	
-/*		if(r-p<2)
-			return;
-		int q=(r+p)/2;
+	            // recursively sort the two halves
+	            merge_sort(L);
+	            merge_sort(R);
 
-		merge_sort(myArray,p,q);
-		merge_sort(myArray,q+1,r);
+	            // merge the sorted halves
+	            merge(myArray, L, R);
+	        }
 
-<<<<<<< HEAD
-		merge(myArray,p,q,r);*/
-		
-=======
-		merge(myArray,p,q,r);
 
->>>>>>> e1ff9fb3a2718b30ccd1f3e2934194b439cf682c
 	}
-	//overridden function compareTo that increments the global counter
-	public static int compare(int l,int r)
-	{
-		comparisons++;
-		x = Integer.valueOf(l);
-		y = Integer.valueOf(r);
-		return x.compareTo(y);
-	}
+	public static int[] leftHalf(int[] myArray) {
+        int size1 = myArray.length / 2;
+        int[] left = new int[size1];
+        for (int i = 0; i < size1; i++) {
+            left[i] = myArray[i];
+        }
+        return left;
+    }
+
+    // Returns the second half of the given array
+    public static int[] rightHalf(int[] myArray) {
+        int size1 = myArray.length / 2;
+        int size2 = myArray.length - size1;
+        int[] right = new int[size2];
+        for (int i = 0; i < size2; i++) {
+            right[i] = myArray[i + size1];
+        }
+        return right;
+    }
+
 	//function to sort the array
-	public static void merge(int[] myArray, int p, int q, int r )
+	public static void merge(int[] myArray, int[] L, int[] R)
 	{
-		int n1=q-p+1;
-		int n2=r-q;
-		int L[]=new int[n1];
-		int R[]=new int[n2];
+		int i = 0;   // index into left array
+        int j = 0;   // index into right array
 
-		for(int i=0;i<n1;i++)
-			L[i]=myArray[p+i];
-		for(int j=0;j<n2;j++)
-			R[j]=myArray[q+j+1];
-		int i=0,j=0,k=p;
-		while(i<n1 && j<n2)
-		{
-			//if left element is smaller, take that and increment counter of left array
-			if(compare(L[i],R[j])<=0)
-			{
-				myArray[k]=L[i];
-				i++;
-			}
-			//else if right element is smaller, take that and increment counter of right array
-			else
-			{
-				myArray[k]=R[j];
-				j++;
-			}
-			k++;
-
-		}
-		//copy remaining elements of left array
-		while(i<n1)
-		{
-			myArray[k]=L[i];
-			i++;
-			k++;
-		}
-		//copy remaining elements of right arrays
-		while(j<n2)
-		{
-			myArray[k]=R[j];
-			j++;
-			k++;
-		}
+        for (int k = 0; k < myArray.length; k++)
+        {
+            if (j >= R.length || (i < L.length && compare(L[i],R[j])<=0))
+            {
+            	myArray[k] = L[i];    // take from left
+                i++;
+            }
+            else
+            {
+            	myArray[k] = R[j];   // take from right
+                j++;
+            }
+        }
 	}
+
 	//method to print any array
 	public static void printArray(int[] array)
 	{
