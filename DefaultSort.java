@@ -2,24 +2,10 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Scanner;
 
-class ArrayComparator implements Comparator<Integer>{
-  @Override
-  public int compare(Integer a, Integer b){
-    comparisons++;
-    return a.compareTo(b);
-  }
-}
+
 public class DefaultSort {
     static int comparisons=0;
     public static void main(String[] args) {
-
-        /*Random rand = new Random();
-        int n = 300000;
-        int[] array = new int[n];
-        for(int i = 0; i < n; i ++){
-          array[i] = rand.nextInt();
-        }*/
-
         Scanner input=new Scanner(System.in);
             //Parse length of array from first line
             int length = Integer.parseInt(input.nextLine().replaceAll("n ", ""));
@@ -38,7 +24,13 @@ public class DefaultSort {
         for (int value : myArray) {
             test[i++] = Integer.valueOf(value);
         }
-        Arrays.sort(test, new ArrayComparator());
+        Arrays.sort(test, new Comparator<Integer>{
+          @Override
+          public int compare(Integer a, Integer b){
+            comparisons++;
+            return a.compareTo(b);
+          }
+        });
 
         //Record system time at end
         long endTime = System.currentTimeMillis();
@@ -53,6 +45,7 @@ public class DefaultSort {
         //Write runtime and key comparisons to standard error
         System.err.println("runtime," + runtime);
         System.err.println("comparisons," + comparisons);
+        
         i = 0;
         for(Integer intobject : test){
           myArray[i++] = intobject.intValue();
