@@ -7,8 +7,8 @@ public abstract class MergeSort {
 	public static void main(String[] args)
 	{
 		Scanner input=new Scanner(System.in);
-		String[] abc = input.nextLine().split(" ");
-		int length = Integer.parseInt(abc[1].replaceAll("[^0-9]" ,""));
+		//Parse length of array from first line
+		int length = Integer.parseInt(input.nextLine().replaceAll("n ", ""));
 		//int length=input.nextInt();
 
 		int[] myArray= new int[length];
@@ -70,7 +70,7 @@ public abstract class MergeSort {
 		comparisons++;
 		x = Integer.valueOf(l);
 		y = Integer.valueOf(r);
-		return l.compareTo(r);
+		return x.compareTo(y);
 	}
 	//function to sort the array
 	public static void merge(int[] myArray, int p, int q, int r )

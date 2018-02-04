@@ -4,8 +4,9 @@ import java.util.Scanner;
 
 class ArrayComparator implements Comparator<Integer>{
   @Override
-  public int compare (Integer a, Integer b){
-    return a.intValue() - b.intValue();
+  public int compare(Integer a, Integer b){
+    comparisons++;
+    return a.compareTo(b);
   }
 }
 public class DefaultSort {
