@@ -51,7 +51,6 @@ public abstract class MergeSort {
 	public static void merge_sort(int[] myArray)
 	{
 
-
 		 if (myArray.length > 1)
 		 {
 	            // split array into two halves
@@ -62,28 +61,28 @@ public abstract class MergeSort {
 	            merge_sort(L);
 	            merge_sort(R);
 
-	            // merge the sorted halves into a sorted whole
+	            // merge the sorted halves
 	            merge(myArray, L, R);
 	        }
 
 
 	}
-	public static int[] leftHalf(int[] array) {
-        int size1 = array.length / 2;
+	public static int[] leftHalf(int[] myArray) {
+        int size1 = myArray.length / 2;
         int[] left = new int[size1];
         for (int i = 0; i < size1; i++) {
-            left[i] = array[i];
+            left[i] = myArray[i];
         }
         return left;
     }
 
-    // Returns the second half of the given array.
-    public static int[] rightHalf(int[] array) {
-        int size1 = array.length / 2;
-        int size2 = array.length - size1;
+    // Returns the second half of the given array
+    public static int[] rightHalf(int[] myArray) {
+        int size1 = myArray.length / 2;
+        int size2 = myArray.length - size1;
         int[] right = new int[size2];
         for (int i = 0; i < size2; i++) {
-            right[i] = array[i + size1];
+            right[i] = myArray[i + size1];
         }
         return right;
     }
@@ -91,16 +90,20 @@ public abstract class MergeSort {
 	//function to sort the array
 	public static void merge(int[] myArray, int[] L, int[] R)
 	{
-		int i1 = 0;   // index into left array
-        int i2 = 0;   // index into right array
+		int i = 0;   // index into left array
+        int j = 0;   // index into right array
 
-        for (int i = 0; i < myArray.length; i++) {
-            if (i2 >= R.length || (i1 < L.length && compare(L[i1],R[i2])<=0)) {
-            	myArray[i] = L[i1];    // take from left
-                i1++;
-            } else {
-            	myArray[i] = R[i2];   // take from right
-                i2++;
+        for (int k = 0; k < myArray.length; k++)
+        {
+            if (j >= R.length || (i < L.length && compare(L[i],R[j])<=0))
+            {
+            	myArray[k] = L[i];    // take from left
+                i++;
+            }
+            else
+            {
+            	myArray[k] = R[j];   // take from right
+                j++;
             }
         }
 	}
