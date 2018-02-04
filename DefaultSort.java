@@ -24,8 +24,8 @@ public class DefaultSort {
         for (int value : myArray) {
             test[i++] = Integer.valueOf(value);
         }
-        Arrays.sort(test, new Comparator<Integer>{
-          @Override
+        Arrays.sort(test, new Comparator<Integer>(){
+          //@Override
           public int compare(Integer a, Integer b){
             comparisons++;
             return a.compareTo(b);
